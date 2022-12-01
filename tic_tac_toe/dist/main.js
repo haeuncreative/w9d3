@@ -15,7 +15,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\")// require appropriate file\nconst Game = __webpack_require__(/*! ../ttt_node/game.js */ \"./ttt_node/game.js\")// require appropriate file\n\ndocument.addEventListener(\"DOMContentLoaded\", (event) => {\n  new Game ()\n  event.getElementByClassName(\"ttt\")\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\")// require appropriate file\nconst Game = __webpack_require__(/*! ../ttt_node/game.js */ \"./ttt_node/game.js\")// require appropriate file\n\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n  const newGame = new Game ();\n  const board = document.getElementsByClassName(\"ttt\")[0];\n  const newView = new View(newGame, board);\n  // newView.setupBoard();\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -23,9 +23,9 @@ eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\
 /*!*************************!*\
   !*** ./src/ttt-view.js ***!
   \*************************/
-/***/ ((module) => {
+/***/ (() => {
 
-eval("class View {\n  constructor(game, el) {}\n\n  setupBoard() {\n    let ul = document.createElement(\"ul\")\n    let li = document.createElement(\"li\")\n    li.dataset.columns = 3;\n    ul.dataset.rows = 3;\n    ul.display = (\"flex\")\n  }\n\n  bindEvents() {}\n\n  handleClick(e) {}\n\n  makeMove(square) {}\n\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
+eval("throw new Error(\"Module parse failed: Unexpected token (28:2)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n|     const tile = e.target;\\n|     if (tile.className)\\n>   }\\n| \\n|   makeMove(square) {}\");\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
 
 /***/ }),
 
