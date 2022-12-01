@@ -16,3 +16,9 @@ li:hover{
   background-color: red;
   transition: 1s;
 }
+
+.selectedO {
+  background-color: white;
+  color: peru;
+}
+

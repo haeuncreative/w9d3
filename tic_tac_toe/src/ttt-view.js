@@ -3,6 +3,7 @@ class View {
     this.newGame = game;
     this.board = el;
     this.setupBoard();
+    this.bindEvents();
   }
 
   setupBoard() {
@@ -20,14 +21,30 @@ class View {
     }
   }
 
-  bindEvents() {}
+  bindEvents() {
+      document.querySelectorAll(".ttt li").forEach((li) => {
+      li.addEventListener("click", this.handleClick.bind(this));
+    });
+  }
+
 
   handleClick(e) {
     const tile = e.target;
-    if (tile.className)
+    console.log(tile)
+    if (tile.innerHTML === "") {
+      tile.className = "chosen";
+      tile.innerHTML = this.newGame.currentPlayer //"CHAD";
+      let tilePos = tile.dataset.position;
+      this.makeMove(tilePos);
+
+    }  
   }
 
-  makeMove(square) {}
+  makeMove(square) {
+    // square = this.currentTile
+    this.newGame.playMove(square)
+    // 
+  }
 
 }
 

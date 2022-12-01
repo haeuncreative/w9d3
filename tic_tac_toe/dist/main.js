@@ -23,9 +23,9 @@ eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\
 /*!*************************!*\
   !*** ./src/ttt-view.js ***!
   \*************************/
-/***/ (() => {
+/***/ ((module) => {
 
-eval("throw new Error(\"Module parse failed: Unexpected token (28:2)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n|     const tile = e.target;\\n|     if (tile.className)\\n>   }\\n| \\n|   makeMove(square) {}\");\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
+eval("class View {\n  constructor(game, el) {\n    this.newGame = game;\n    this.board = el;\n    this.setupBoard();\n    this.bindEvents();\n  }\n\n  setupBoard() {\n    let ul = document.createElement(\"ul\")\n    this.board.appendChild(ul);\n    // li.dataset.columns = 3;\n    // ul.dataset.rows = 3;\n    \n    for(let x = 0; x < 3; x++){\n      for (let y = 0; y < 3; y++){\n        let li = document.createElement(\"li\");\n        li.dataset.position = JSON.stringify([x,y]);\n        ul.appendChild(li);\n      }\n    }\n  }\n\n  bindEvents() {\n      document.querySelectorAll(\".ttt li\").forEach((li) => {\n      li.addEventListener(\"click\", this.handleClick.bind(this));\n    });\n  }\n\n\n  handleClick(e) {\n    const tile = e.target;\n    console.log(tile)\n    if (tile.innerHTML === \"\") {\n      tile.className = \"chosen\";\n      tile.innerHTML = this.newGame.currentPlayer //\"CHAD\";\n      let tilePos = tile.dataset.position;\n      this.makeMove(tilePos);\n\n    }  \n  }\n\n  makeMove(square) {\n    // square = this.currentTile\n    this.newGame.playMove(square)\n    // \n  }\n\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
 
 /***/ }),
 
